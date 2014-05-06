@@ -1,4 +1,10 @@
-# Meteor UP
+# Meteor UP - Stage
+
+Production quality Meteor Deployments with Capistrano-like staged configurations which live
+in your project for more concise and simple management.
+
+Built atop [Meteor UP](https://github.com/arunoda/meteor-up) by @arunoda.
+
 
 #### Production Quality Meteor Deployments
 
