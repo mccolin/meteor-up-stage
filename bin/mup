@@ -7,26 +7,33 @@ var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
 require('colors');
 
-console.log('\nMeteor-UP : Production Quality Meteor Deployments'.bold.blue);
-console.log('--------------------------------------------------\n'.bold.blue);
+console.log('\nMeteor-UP (Staged) : Production Quality Meteor Deployments'.bold.blue);
+console.log('------------------------------------------------------------\n'.bold.blue);
 
+// Load action (required) and environment (optional) from command line:
 var action = process.argv[2];
-if(action == 'init') {
-  //special setup for init
+var targetEnv = process.argv[3];
+
+// Set target to default environment if none specified:
+var DEFAULT_ENVIRONMENT = "default";
+if (targetEnv == undefined)
+  targetEnv = DEFAULT_ENVIRONMENT;
+
+if (action == "init") {
+  // Special setup for init
   ActionsRegistry.init();
 } else {
-  var cwd = path.resolve('.');
-  //read config and validate it
-  var config = Config.read();
-  
-  if(config._passwordExists) {
-    //check for sshpass
-    helpers.checkSshPassExists(function(exists) {
-      if(exists) {
+  // Major actions load configuration for environment:
+  var cwd = path.resolve(".");
+  var config = Config.read(targetEnv);
+
+  if (config.__passwordExists) {
+    // Check for sshpass:
+    helpers.checkSshPassExists(function(exists){
+      if (exists)
         runActions(config, cwd);
-      } else {
-        var errorMessage = "sshpass required for password based authentication: refer http://git.io/_vHbvQ";
-        console.error(errorMessage.bold.red);
+      else {
+        console.error("sshpass required for password based authentication: refer http://git.io/_vHbvQ".bold.red);
         process.exit(1);
       }
     });
@@ -34,7 +41,6 @@ if(action == 'init') {
     runActions(config, cwd);
   }
 }
-
 
 function runActions(config, cwd) {
   var actionsRegistry = new ActionsRegistry(config, cwd);
