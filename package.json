@@ -1,7 +1,8 @@
 {
-  "name": "mup",
+  "name": "mups",
   "version": "0.4.3",
-  "description": "Production Quality Meteor Deplouments",
+  "description": "Production Quality Meteor Deployments (from mup) with Capistrano-like Multi-Environment Support",
+  "keywords": "meteorjs, meteor, deployment, configuration",
   "dependencies": {
     "nodemiral": "0.3.x",
     "cjson": "0.2.1",
@@ -9,12 +10,14 @@
     "colors": "0.6.x"
   },
   "bin": {
-    "mup": "./bin/mup"
+    "mups": "./bin/mups"
   },
-  "author": "Arunoda Susiripala <arunoda.susiripala@gmail.com>",
+  "author": "Colin McCloskey <colin@mccolin.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/arunoda/meteor-up.git"
+    "url": "git://github.com/mccolin/meteor-up-stage.git"
   },
+  "homepage": "https://github.com/mccolin/meteor-up-stage",
+  "bugs": "https://github.com/mccolin/meteor-up-stage/issues",
   "license": "MIT"
 }

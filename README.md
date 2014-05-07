@@ -5,6 +5,24 @@ in your project for more concise and simple management.
 
 Built atop [Meteor UP](https://github.com/arunoda/meteor-up) by @arunoda.
 
+The changes to Meteor UP Stage include:
+
+* Command is `mups` to prevent direct conflict with the original `mup`
+* Configuration is now created/expected to be within `.deploy` folder. This allows you to keep configuration with your project rather than separate.
+* Target environments may be specified on the command line
+* Multiple environment configuration files may be specified, e.g. `.deploy/production.json` and `.deploy/staging.json`, etc.
+
+Usage Examples:
+
+    mups init                   # Initialize .deploy folder with example configuration
+    mups setup staging          # Setup staging server environment
+    mups deploy production      # Deploy to production environment
+    mups logs                   # Load logs from default environment
+
+The version tracks the related Meteor UP (mup) version.
+
+TODO: Change details of configuration from Meteor UP documentation, below...
+
 
 #### Production Quality Meteor Deployments
 
