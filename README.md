@@ -1,5 +1,29 @@
 # Meteor UP - Stage
 
+*DEPRECATED* This product is no longer maintained. If you would like to use the Meteor UP
+style of deployment, consider using the original 
+[Meteor UP](https://github.com/arunoda/meteor-up) by @arunoda.
+
+--
+
+Configuration independence can be a achieved by using a directory structure similar to the
+following:
+
+    /app
+    /config
+      +- /development
+      +- /production
+
+In each environment (development, production above) run `mup init` separately and maintain
+mup.json and settings.json files for the appropriate environment, pointing via relative path
+to the /app folder, where your actual meteor application is contained.
+
+THIS NPM PACKAGE IS NO LONGER MAINTAINED. DO NOT USE mups AND INSTEAD USE THE ORIGINAL mup
+DEPLOYMENT TOOL WITH A CUSTOM FOLDER CONFIGURATION.
+
+
+--
+
 Production quality Meteor Deployments with Capistrano-like staged configurations which live
 in your project for more concise and simple management.
 
